@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bootstrap &amp; jQuery Electron!</title>
+    <title>Guardrails Installer</title>
     <link href="css/photon/css/photon.icons.css" rel="stylesheet" type="text/css">
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script>
@@ -11,11 +11,73 @@
         require("./lib/render/index.js");
     </script>
     <style>
-    button {
-      background-color: black;
-      color: white;
+    body {
+      background-color: #213A44;
+      color: #f1f1f1
     }
+    button#button-id {
+      background-color: #213A44;
+      border: 1px solid white;
+      padding: 10px;
+      min-width: 100px;
+      color: white;
+      border-radius: 30px;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: 20px;
+      width: 200px;
+      margin-top: 5vh;
+    }
+
+    button#setup {
+      background-color: #3E555C;
+      border: 1px solid white;
+      padding: 10px;
+      min-width: 100px;
+      color: white;
+      border-radius: 30px;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: 20px;
+      width: 200px;
+      margin-top: 5vh;
+    }
+
+    .jumbotron {
+      background-color: #3E555C !important;
+      border-radius: 0px !important;
+      margin-top: 8vh !important;
+    }
+
+    input#email, input#password {
+      background: #213a44;
+      border: 0px;
+      height: 50px;
+      padding-left: 150px;
+      color: white;
+      border-radius: 10px;
+    }
+
+    label {
+      position: relative;
+      top: 58px;
+      background: #1D638C;
+      height: 50px;
+      padding: 10px;
+      width: 100px;
+      left: -42%;
+      border: 1px solid white;
+    }
+
+
+    .form-wrapper {
+      width: 65%;
+      margin-left: 11vw;
+    }
+
     </style>
+
+
 </head>
 
 <body>
@@ -24,34 +86,32 @@
     <div class="container text-center">
         <div class="jumbotron">
             <h1 class="display-3">Guardrails Desktop</h1>
-            <p class="lead">From Enxo</p>
+            <p class="lead">Login below to begin setting up your computer</p>
+            <div class="form-wrapper">
+            <form class="form">
+
+                    <label id="email">Email</label>
+                    <input id="email" type="email" class="form-control" aria-describedby="input-email" placeholder="someone@somewhere.com">
+                    <br />
+                    <label id="password">Password</label>
+                    <input id="password" type="password" class="form-control" aria-describedby="input-password" placeholder="password">
+                <input type="hidden" id="serialNumber" value="" />
+                <input type="hidden" id="deviceId" value="" />
+                <input type="hidden" id="model" value="" />
+                <input type="hidden" id="portNum" value="" />
+                <input type="hidden" id="sid" value="" />
+            </form>
+
+
+            <div class="form-group">
+                <button id="button-id" type="button" class="btn btn-default center-block">Login</button>
+            </div>
+          </div>
         </div>
-
-        <div class="row">
-            <div class="col-sm-4">
-
-                <form>
-                    <div class="form-group">
-                        <span class="icon icon-note"> See phonton icons too!</span>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input id="email" type="email" class="form-control" aria-describedby="input-email" placeholder="someone@somewhere.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input id="password" type="password" class="form-control" aria-describedby="input-password" placeholder="password">
-                    </div>
-                </form>
 
                 <!-- use this for some jQuery manipulation -->
-                <div id="os-div" class="text-center"></div>
-                <div class="form-group">
-                    <button id="button-id" type="button" class="btn btn-default center-block">Login</button>
-                </div>
+            <div id="message" class="text-center"></div>
 
-            </div>
-        </div>
     </div>
 
 </body>
