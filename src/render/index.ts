@@ -3,20 +3,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("bootstrap/dist/js/bootstrap.bundle.min.js");
 const $ = require("jquery");
 const OS_1 = require("./../util/OS");
+const os = require('os')
+
 
 const { exec } = require('child_process');
 
 
 var stringHash = require("@sindresorhus/string-hash")
 
-
 document.addEventListener("DOMContentLoaded", () => {
+  alert('hello')
     initListeners();
 });
 function initListeners() {
     $("#button-id").click(() => {
+      console.log(getOs())
         handlePostLogin();
     });
+
+    $("#setup").click(() => {
+      // if(process.platform === "")
+    })
 }
 
   //Mac specific code
