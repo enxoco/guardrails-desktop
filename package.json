@@ -1,0 +1,27 @@
+{
+  "name": "guardrails-desktop",
+  "version": "0.1.0",
+  "main": "lib/main.js",
+  "license": "MIT",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc --pretty",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@sindresorhus/string-hash": "^1.0.0",
+    "bootstrap": "^4.0.0-beta.2",
+    "electron": "^1.7.9",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.2.16",
+    "@types/node": "^8.0.0",
+    "tslint": "^5.0.0",
+    "typescript": "^2.6.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}

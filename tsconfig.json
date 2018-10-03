@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "types": [
+            "node"
+        ],
+        "declaration": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "target": "es2015",
+        "outDir": "./lib",
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "inlineSourceMap": true,
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*-spec.ts"
+    ]
+}
