@@ -12,48 +12,56 @@ const { exec } = require('child_process');
 var stringHash = require("@sindresorhus/string-hash")
 
 document.addEventListener("DOMContentLoaded", () => {
-  alert('hello')
+  alert('lib/render/index.js')
     initListeners();
 });
 function initListeners() {
     $("#button-id").click(() => {
-      console.log(getOs())
+      $(this).hide()
         handlePostLogin();
     });
 
-    $("#setup").click(() => {
-      // if(process.platform === "")
-    })
+
+}
+
+function handleDarwinSetup(sid, port, did) {
+  var authString = btoa(did)
+  var pacUrl = `https://${sid}.enxo.co?port=${port}?a=${authString}`
+  exec(`curl -o /tmp/cert.crt https://s3.us-east-2.amazonaws.com/enxo-assets-public/cert.crt && osascript -e 'do shell script "sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /tmp/cert.crt" with administrator privileges'`)
+  exec(`for nport in $(networksetup -listallnetworkservices | tail +2); do networksetup -setautoproxyurl $nport ${pacUrl}; done`)
 }
 
   //Mac specific code
 
-  var child = exec("ioreg -l | awk '/IOPlatformSerialNumber/ { print $4;}' | sed 's/\"//g'");
-  child.stdout.on('data', function(data) {
-      var div = $('#serialNumber')
-      var deviceId = $('#deviceId')
-      div.val(data)
-      deviceId.val(stringHash(data))
-      var childModel = exec(`curl https://support-sp.apple.com/sp/product?cc=${data.substr(data.length - 5)}`)
-        childModel.stdout.on('data', function(data) {
-          var model = $('#model')
-          var modelStr = data.match(/<configCode>(.*?)<\/configCode>/g)
-          model.val(modelStr[0].replace(/<\/?configCode>/g,''))
-        })
-  });
-  child.stderr.on('data', function(data) {
-      console.log('stderr: ' + data);
-  });
-  child.on('close', function(code) {
-      console.log('closing code: ' + code);
-  });
+  if(process.platform == "darwin") {
+    var child = exec("ioreg -l | awk '/IOPlatformSerialNumber/ { print $4;}' | sed 's/\"//g'");
+    child.stdout.on('data', function(data) {
+        var div = $('#serialNumber')
+        var deviceId = $('#deviceId')
+        div.val(data)
+        deviceId.val(stringHash(data))
+        var childModel = exec(`curl https://support-sp.apple.com/sp/product?cc=${data.substr(data.length - 5)}`)
+          childModel.stdout.on('data', function(data) {
+            var model = $('#model')
+            var modelStr = data.match(/<configCode>(.*?)<\/configCode>/g)
+            model.val(modelStr[0].replace(/<\/?configCode>/g,''))
+          })
+    });
+    child.stderr.on('data', function(data) {
+        console.log('stderr: ' + data);
+    });
+    child.on('close', function(code) {
+        console.log('closing code: ' + code);
+    });
 
+
+  }
 
 
 function handlePostLogin() {
     console.log('handleOsDivClick called');
-    var emailTextField = $('#email')
-    var passTextField = $('#password')
+    var emailTextField = $('#email-field')
+    var passTextField = $('#password-field')
     var deviceIdField = $('#deviceId')
     var modelField = $('#model')
 
@@ -71,7 +79,14 @@ function handlePostLogin() {
           portNum.val(data.port)
           sid.val(data.sid)
           var messageDiv = $('#message')
+          alert(data.error)
           messageDiv.html('Thanks for logging in.  Click the button below to begin setting up your device<br /><button id="setup" type="button" class="btn btn-default center-block">Setup</button>')
+
+          $("#setup").click(() => {
+              if(process.platform == "darwin") {
+                handleDarwinSetup(sid.val(), portNum.val(), deviceIdField.val())
+              }
+          });
       });
 
 }

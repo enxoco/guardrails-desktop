@@ -1,0 +1,10 @@
+version: 0.1.0
+files:
+  - url: guardrails-desktop-0.1.0-mac.zip
+    sha512: WMFM4Pa/L7oWhiWBu887DT8lts95qbGbYtWBJnl4zwaBWCvE/Qna/42S+MvdgPgLof36WwPYzyT+CcfGUsbgMQ==
+  - url: guardrails-desktop-0.1.0.dmg
+    sha512: dDJ5KHvQ0PKwC7dtbCr1B8u1YWys03axfpZSGfj7MVNfJe0F9BlqWciRwpCDHt1PqhXdGSz7Mo/sQbKWjrrQJQ==
+    size: 52579486
+path: guardrails-desktop-0.1.0-mac.zip
+sha512: WMFM4Pa/L7oWhiWBu887DT8lts95qbGbYtWBJnl4zwaBWCvE/Qna/42S+MvdgPgLof36WwPYzyT+CcfGUsbgMQ==
+releaseDate: '2018-10-04T14:00:48.786Z'

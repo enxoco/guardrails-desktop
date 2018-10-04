@@ -7,18 +7,49 @@
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc --pretty",
-    "lint": "tslint --force --format verbose \"src/**/*.ts\""
+    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "guardrails-desktop",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "build/icon.ico"
+    }
   },
   "dependencies": {
     "@sindresorhus/string-hash": "^1.0.0",
     "bootstrap": "^4.0.0-beta.2",
-    "electron": "^1.7.9",
     "jquery": "^3.2.1"
   },
   "devDependencies": {
     "@types/jquery": "^3.2.16",
     "@types/node": "^8.0.0",
+    "electron-builder": "latest",
+    "electron": "latest",
     "tslint": "^5.0.0",
+    "popper.js": "^1.14.3",
     "typescript": "^2.6.1"
   },
   "engines": {
