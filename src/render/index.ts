@@ -5,11 +5,17 @@ const $ = require("jquery");
 const OS_1 = require("./../util/OS");
 const os = require('os')
 const powershell = require('node-powershell')
-
-
+const hddserial = require('hddserial')
+let ps = new powershell({
+    executionPolicy: 'Bypass',
+    noProfile: true
+})
 
 const { exec } = require('child_process');
 
+hddserial.first(function(err, serial) {
+  alert(serial)
+})
 
 var stringHash = require("@sindresorhus/string-hash")
 
@@ -35,10 +41,7 @@ function handleDarwinSetup(sid, port, did) {
 
 function handleWindowsSetup(sid, port, did) {
   var authString = btoa(did)
-  let ps = new powershell({
-      executionPolicy: 'Bypass',
-      noProfile: true
-  })
+
 
   // let scriptPath = require("path").resolve(__dirname, './setProxy.ps1')
   let cert = `-----BEGIN CERTIFICATE-----
@@ -78,23 +81,14 @@ function handleWindowsSetup(sid, port, did) {
         $b = $type::InternetSetOption(0, $INTERNET_OPTION_REFRESH, 0, 0)
         return $a -and $b
     `
-  ps.addCommand('Add-Content -Path $env:TEMP/enxo.cer -Value "' + cert + '"')
+  ps.addCommand('Add-Content -Path /tmp/enxo.cer -Value "' + cert + '"')
   ps.addCommand('Import-Certificate -FilePath $env:TEMP/enxo.cer -CertStoreLocation Cert:/CurrentUser/Root >$null')
   ps.addCommand('Set-ItemProperty "HKCU:/Software/Microsoft/Windows/CurrentVersion/Internet Settings" -Name AutoConfigURL -Value "https://'+sid+'.enxo.co?port='+ port +'?a=' + authString)
   ps.addCommand('Set-ItemProperty "HKCU:/Software/Microsoft/Windows/CurrentVersion/Internet Settings" -Name ProxyEnable -value 1')
   ps.addCommand(scriptRefresh)
   ps.invoke()
   .then(output => {
-    $('#message').append('<button id="success" class="btn btn-lg btn-block btn-success">Installation Successful!  Click here to exit</button>');
-
-              document.getElementById("success").addEventListener("click", function (e) {
-
-        const window = remote.getCurrentWindow();
-
-        window.close();
-
-      });
-      // Set the global Variable
+    alert('done')
 
   })
   .catch(err => {
@@ -129,6 +123,9 @@ function handleWindowsSetup(sid, port, did) {
     });
 
 
+  }
+  if (process.platform == "win32") {
+    console.log(ps.invoke('gwmi win32_bios | fl SerialNumber'))
   }
 
 
@@ -172,6 +169,8 @@ function handlePostLogin() {
             $("#setup").click(() => {
                 if(process.platform == "darwin") {
                   handleDarwinSetup(sid.val(), portNum.val(), deviceIdField.val())
+                } else if (process.platform == "win32") {
+                  handleWindowsSetup(sid.val(), portNum.val(), deviceIdField.val())
                 }
             });
           }

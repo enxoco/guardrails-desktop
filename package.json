@@ -4,6 +4,8 @@
   "main": "lib/main.js",
   "license": "MIT",
   "typings": "lib/index.d.ts",
+  "description": "Enxo guardrails installer",
+  "author": "Mike Murph Conrad",
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc --pretty",
@@ -41,8 +43,11 @@
   "dependencies": {
     "@sindresorhus/string-hash": "^1.0.0",
     "bootstrap": "^4.0.0-beta.2",
+    "electron-builder-squirrel-windows": "^20.28.3",
+    "hddserial": "0.0.7",
     "jquery": "^3.2.1",
-    "node-powershell": "^3.3.1"
+    "node-powershell": "^3.3.1",
+    "systeminformation": "^3.45.6"
   },
   "devDependencies": {
     "@types/jquery": "^3.2.16",
