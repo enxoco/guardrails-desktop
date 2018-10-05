@@ -17,11 +17,10 @@
     }
     button#button-id {
       background-color: #213A44;
-      border: 1px solid white;
       padding: 10px;
       min-width: 100px;
       color: white;
-      border-radius: 30px;
+      border-radius: 10px;
       padding-left: 20px;
       padding-right: 20px;
       font-size: 20px;
@@ -29,13 +28,12 @@
       margin-top: 5vh;
     }
 
-    button#setup {
+    button#setup, button#check {
       background-color: #3E555C;
-      border: 1px solid white;
       padding: 10px;
       min-width: 100px;
       color: white;
-      border-radius: 30px;
+      border-radius: 10px;
       padding-left: 20px;
       padding-right: 20px;
       font-size: 20px;
@@ -45,7 +43,7 @@
 
     .jumbotron {
       background-color: #3E555C !important;
-      border-radius: 0px !important;
+      /* border-radius: 0px !important; */
       margin-top: 8vh !important;
     }
 
@@ -80,7 +78,6 @@
       font-size: 2em;
       padding: 10px;
       border-radius: 10px;
-      border: 1px solid white;
       margin-top: 60px;
     }
 
@@ -89,7 +86,6 @@
       font-size: 2em;
       padding: 10px;
       border-radius: 10px;
-      border: 1px solid white;
       margin-top: 60px;
     }
 
@@ -108,6 +104,7 @@
         <div class="jumbotron">
             <h1 class="display-3">Guardrails Desktop</h1>
             <div id="message" class="text-center">Login below to begin setting up your computer</div>
+            <input type="hidden" id="setupComplete" value="0" />
             <div class="form-wrapper">
             <form class="form">
 

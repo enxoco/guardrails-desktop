@@ -4,20 +4,30 @@ require("bootstrap/dist/js/bootstrap.bundle.min.js");
 const $ = require("jquery");
 const OS_1 = require("./../util/OS");
 const os = require('os')
-const powershell = require('node-powershell')
+const powershell = require('powershell')
 const hddserial = require('hddserial')
+const si = require('systeminformation')
+
 let ps = new powershell({
     executionPolicy: 'Bypass',
     noProfile: true
 })
 
+
+var stringHash = require("@sindresorhus/string-hash")
+var setupComplete = $('#setupComplete')
+
+
 const { exec } = require('child_process');
 
 hddserial.first(function(err, serial) {
-  alert(serial)
+  $('#deviceId').val(stringHash(serial))
 })
 
-var stringHash = require("@sindresorhus/string-hash")
+si.getAllData(function(data) {
+  $('#model').val(data.system.model)
+  $('#serialNumber').val(data.system.serial)
+})
 
 document.addEventListener("DOMContentLoaded", () => {
   alert('lib/render/index.js')
@@ -31,6 +41,8 @@ function initListeners() {
 
 }
 
+
+
 function handleDarwinSetup(sid, port, did) {
   var authString = btoa(did)
   var pacUrl = `https://${sid}.enxo.co?port=${port}?a=${authString}`
@@ -41,7 +53,8 @@ function handleDarwinSetup(sid, port, did) {
 
 function handleWindowsSetup(sid, port, did) {
   var authString = btoa(did)
-
+  // var pacUrl = `https://${sid}.enxo.co?port=${port}?a=${authString}`
+  var pacUrl = `https://1.enxo.co/proxy.pac?port=6502?a=adfafasdfasf`
 
   // let scriptPath = require("path").resolve(__dirname, './setProxy.ps1')
   let cert = `-----BEGIN CERTIFICATE-----
@@ -80,53 +93,34 @@ function handleWindowsSetup(sid, port, did) {
         $a = $type::InternetSetOption(0, $INTERNET_OPTION_SETTINGS_CHANGED, 0, 0)
         $b = $type::InternetSetOption(0, $INTERNET_OPTION_REFRESH, 0, 0)
         return $a -and $b
-    `
-  ps.addCommand('Add-Content -Path /tmp/enxo.cer -Value "' + cert + '"')
-  ps.addCommand('Import-Certificate -FilePath $env:TEMP/enxo.cer -CertStoreLocation Cert:/CurrentUser/Root >$null')
-  ps.addCommand('Set-ItemProperty "HKCU:/Software/Microsoft/Windows/CurrentVersion/Internet Settings" -Name AutoConfigURL -Value "https://'+sid+'.enxo.co?port='+ port +'?a=' + authString)
-  ps.addCommand('Set-ItemProperty "HKCU:/Software/Microsoft/Windows/CurrentVersion/Internet Settings" -Name ProxyEnable -value 1')
-  ps.addCommand(scriptRefresh)
-  ps.invoke()
-  .then(output => {
-    alert('done')
 
-  })
-  .catch(err => {
-      console.dir(err);
-      ps.dispose();
-  })
+    `
+    let addCert = new powershell(`Add-Content -Path "$(echo $env:TEMP)/cert.crt" -Value "${cert}"`)
+
+    let obj = {noprofile: 1, executionpolicy: "Bypass"}
+    let installCert = new powershell(`Import-Certificate -FilePath "$($env:TEMP)/cert.crt" -CertStoreLocation Cert:/CurrentUser/Root >$null`, obj)
+    let autoConfigSetup = new powershell(`Set-ItemProperty "HKCU:/Software/Microsoft/Windows/CurrentVersion/Internet Settings" -Name AutoConfigURL -Value "${pacUrl}"`)
+    let enableProxy = new powershell(`Set-ItemProperty "HKCU:/Software/Microsoft/Windows/CurrentVersion/Internet Settings" -Name ProxyEnable -value 1`)
+    let refreshScript = new powershell(`scriptRefresh`)
+
+    enableProxy.on('output', data => {
+      setupComplete.val('1')
+      var messageDiv = $('#message')
+
+      messageDiv.html('Guardrails protection has been enabled.  Click here to make sure everything is working.<br /> <button id="check" type="button" class="btn btn-default center-block">Check protection</button>')
+
+      $('#check').click(() => {
+        window.open('https://blocked.enxo.co', 'check.enxo.co')
+      })
+
+    })
+
+    enableProxy.on('error-output', data => {
+
+    })
+
 
 }
-
-
-  //Mac specific code
-
-  if(process.platform == "darwin") {
-    var child = exec("ioreg -l | awk '/IOPlatformSerialNumber/ { print $4;}' | sed 's/\"//g'");
-    child.stdout.on('data', function(data) {
-        var div = $('#serialNumber')
-        var deviceId = $('#deviceId')
-        div.val(data)
-        deviceId.val(stringHash(data))
-        var childModel = exec(`curl https://support-sp.apple.com/sp/product?cc=${data.substr(data.length - 5)}`)
-          childModel.stdout.on('data', function(data) {
-            var model = $('#model')
-            var modelStr = data.match(/<configCode>(.*?)<\/configCode>/g)
-            model.val(modelStr[0].replace(/<\/?configCode>/g,''))
-          })
-    });
-    child.stderr.on('data', function(data) {
-        console.log('stderr: ' + data);
-    });
-    child.on('close', function(code) {
-        console.log('closing code: ' + code);
-    });
-
-
-  }
-  if (process.platform == "win32") {
-    console.log(ps.invoke('gwmi win32_bios | fl SerialNumber'))
-  }
 
 
 function handlePostLogin() {
@@ -150,6 +144,7 @@ function handlePostLogin() {
           portNum.val(data.port)
           sid.val(data.sid)
           var messageDiv = $('#message')
+
           messageDiv.show()
           messageDiv.addClass('danger')
 
@@ -163,7 +158,8 @@ function handlePostLogin() {
             }, 5000);
           } else {
             messageDiv.addClass('success')
-            $('#button-id').hide()
+
+            $('.form-wrapper').hide()
             messageDiv.html('Thanks for logging in.  Click the button below to begin setting up your device<br /><button id="setup" type="button" class="btn btn-default center-block">Setup</button>')
 
             $("#setup").click(() => {
