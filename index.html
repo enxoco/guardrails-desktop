@@ -13,7 +13,8 @@
     <style>
     body {
       background-color: #213A44;
-      color: #f1f1f1
+      color: #f1f1f1;
+       -webkit-app-region: drag
     }
     button#button-id {
       background-color: #213A44;
@@ -28,6 +29,12 @@
       margin-top: 5vh;
     }
 
+    button#button-id {
+      position: relative;
+      width: 40%;
+      top: 50px;
+      left: 5%;
+    }
     button#setup, button#check {
       background-color: #3E555C;
       padding: 10px;
@@ -51,9 +58,12 @@
       background: #213a44;
       border: 0px;
       height: 50px;
-      padding-left: 150px;
+      padding-left: 100px;
       color: white;
       border-radius: 10px;
+      position: fixed;
+      left: 30%;
+      width: 40%;
     }
 
     label {
@@ -63,7 +73,9 @@
       height: 50px;
       padding: 10px;
       width: 100px;
-      left: -42%;
+      left: -34%;
+      border-radius: 10px 0px 0px 10px;
+      z-index: 10;
       border: 1px solid white;
     }
 
@@ -89,6 +101,13 @@
       margin-top: 60px;
     }
 
+    #titlebar {
+      background-color: #f1f1f1;
+      color: black;
+      padding-left: 10px;
+    }
+
+
 
 
 
@@ -98,6 +117,7 @@
 </head>
 
 <body>
+  <!-- <div id="titlebar">hello</div> -->
 
     <!-- show some copy/pasted Bootstrap entities -->
     <div class="container text-center">
@@ -107,12 +127,15 @@
             <input type="hidden" id="setupComplete" value="0" />
             <div class="form-wrapper">
             <form class="form">
-
+              <div class="email-field-wrapper">
                     <label id="email">Email</label>
                     <input id="email-field" type="email" class="form-control" aria-describedby="input-email" placeholder="someone@somewhere.com">
+                  </div>
                     <br />
+                    <div class="password-field-wrapper">
                     <label id="password">Password</label>
                     <input id="password-field" type="password" class="form-control" aria-describedby="input-password" placeholder="password">
+                  </div>
                 <input type="hidden" id="serialNumber" value="" />
                 <input type="hidden" id="deviceId" value="" />
                 <input type="hidden" id="model" value="" />

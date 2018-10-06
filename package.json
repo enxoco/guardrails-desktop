@@ -44,6 +44,7 @@
     "@sindresorhus/string-hash": "^1.0.0",
     "bootstrap": "^4.0.0-beta.2",
     "electron-builder-squirrel-windows": "^20.28.3",
+    "electron-titlebar": "0.0.3",
     "hddserial": "0.0.7",
     "jquery": "^3.2.1",
     "node-powershell": "^3.3.1",

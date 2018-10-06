@@ -9,7 +9,7 @@
     <key>CFBundleExecutable</key>
     <string>guardrails-desktop</string>
     <key>CFBundleIconFile</key>
-    <string>electron.icns</string>
+    <string>guardrails-desktop.icns</string>
     <key>CFBundleIdentifier</key>
     <string>guardrails-desktop</string>
     <key>CFBundleInfoDictionaryVersion</key>
@@ -43,8 +43,8 @@
     <key>NSSupportsAutomaticGraphicsSwitching</key>
     <true/>
     <key>NSHumanReadableCopyright</key>
-    <string>Copyright © 2018 guardrails-desktop</string>
+    <string>Copyright © 2018 Mike Murph Conrad</string>
     <key>AsarIntegrity</key>
-    <string>{"checksums":{"app.asar":"tEjY8dVOfdcvFQNW3RtWSPT+mt+e41ZZg/VKS2tRQ9Sox/Y3a3vVKb6VY+OjHIE3w6oOkncq6JtIL+0gvLOK5A==","electron.asar":"Ip/GqLJNwH9HdV4FO24ZDjAtVqEQy9hwEtIJ6eYRRqBG8I9UBqBXVCtCrkiLk/smh6650/gIEW0ly2jvqchncA=="}}</string>
+    <string>{"checksums":{"app.asar":"iTLRP0J5VA92ADlPEQH4GPUlIcCzMCfuq8Q0GwAgZ/VoZow0KgL+GO+WNc+B2+dopJjARci68sgLAo9T9vttJw==","electron.asar":"Ip/GqLJNwH9HdV4FO24ZDjAtVqEQy9hwEtIJ6eYRRqBG8I9UBqBXVCtCrkiLk/smh6650/gIEW0ly2jvqchncA=="}}</string>
   </dict>
 </plist>

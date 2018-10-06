@@ -10,15 +10,87 @@
 		</data>
 		<key>Resources/app.asar</key>
 		<data>
-		OPeNIvNgIKQ5COrMU5bEg5NtQXE=
+		k52vbSHqeitJ0fcN3AP7yPkk1hs=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/7x.sh</key>
+		<data>
+		odRJylG1ume+nLyqeQHPmz8cDwQ=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/LICENSE.txt</key>
+		<data>
+		7onrdmKIH9LV4h1cyAIWKIT/7C8=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/index.js</key>
+		<data>
+		2WRbzGQbD4C1RoSBobz/1n4cfyI=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/arm/7za</key>
+		<data>
+		EU+I/KmdWet6GhgPDj7OPwVvKMk=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/arm64/7za</key>
+		<data>
+		Xx3wfYFCJJMdCu942LRf+JR0rHg=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/ia32/7za</key>
+		<data>
+		M7euAMIYolDDBYj6E03JlGZlFHs=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/x64/7za</key>
+		<data>
+		sOpZSEpIJ9fZoKJ6UnAxDvB+Yag=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/x64/build.sh</key>
+		<data>
+		vsrN1HBf2Q6yqPRXdVcv+ghikII=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/x64/do-build.sh</key>
+		<data>
+		p7C6/fsHDgzG/fopd2SLjQdZP14=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/mac/7za</key>
+		<data>
+		FgO6F545ftLH95slcdcVNwvXNc4=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/package.json</key>
+		<data>
+		jwdmAYCL42T6MsxQJ3BH8rnVLwo=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/index.js</key>
+		<data>
+		UB5TTFNoPv4LSC5dPxwCC1etvbc=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/linux/arm/app-builder</key>
+		<data>
+		P/o9zoqS9s350uBWVTJOknjBTm8=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/linux/arm64/app-builder</key>
+		<data>
+		QPx3JwwBhz5GhycEza3CEsrBt+U=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/linux/ia32/app-builder</key>
+		<data>
+		YQs+mDpyCX2CCxVgxDuTlfyafd0=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/linux/x64/app-builder</key>
+		<data>
+		WFttQJkZkufMlyhvb7QFczj+s74=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/mac/app-builder</key>
+		<data>
+		DMzr0sLPZxponrOk/+hJXeYjg9o=
+		</data>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/package.json</key>
+		<data>
+		NatmiMR8wRLwOO7P0YKl20hwCU0=
 		</data>
 		<key>Resources/electron.asar</key>
 		<data>
 		F+EmHmRCIjl93WlQGjjLNEz/kuQ=
 		</data>
-		<key>Resources/electron.icns</key>
+		<key>Resources/guardrails-desktop.icns</key>
 		<data>
-		yBsjVAviSqArVhNx5Jx3gIgxq5A=
+		Ktcit13Xcmlqwg76TNxIL95Qx0g=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -27,64 +99,64 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			FQsQGEOVhasM9KXL+3+VHLkqzQw=
+			nNa/ApfDsZ1QdxkDABU01iC6ES0=
 			</data>
 			<key>requirement</key>
-			<string>identifier "com.github.electron.framework" and certificate root = H"612ca110d92d69856e85493454d6bb90e998eb27"</string>
+			<string>identifier "com.github.electron.framework" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MKA4CCXRWB</string>
 		</dict>
 		<key>Frameworks/Mantle.framework</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			XuVYPkFazcfkCxfSr6WjKNrZORI=
+			ueF/xLE8znObkIQOqDKEc3uQbWs=
 			</data>
 			<key>requirement</key>
-			<string>identifier "org.mantle.Mantle" and certificate root = H"612ca110d92d69856e85493454d6bb90e998eb27"</string>
+			<string>identifier "org.mantle.Mantle" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MKA4CCXRWB</string>
 		</dict>
 		<key>Frameworks/ReactiveCocoa.framework</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			tYuofewxLSkuxCk6ZxAPlwUpJqs=
+			BWdcZB6Hm0ltk33t/LJN9v3ZML8=
 			</data>
 			<key>requirement</key>
-			<string>identifier "org.reactivecocoa.ReactiveCocoa" and certificate root = H"612ca110d92d69856e85493454d6bb90e998eb27"</string>
+			<string>identifier "org.reactivecocoa.ReactiveCocoa" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MKA4CCXRWB</string>
 		</dict>
 		<key>Frameworks/Squirrel.framework</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			hwbtV8iX1ij2vkAHt1ffyYis2yo=
+			Sg/zjQPzEEP7TFxaGSg0iRwxcAw=
 			</data>
 			<key>requirement</key>
-			<string>identifier "com.github.Squirrel" and certificate root = H"612ca110d92d69856e85493454d6bb90e998eb27"</string>
+			<string>identifier "com.github.Squirrel" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MKA4CCXRWB</string>
 		</dict>
 		<key>Frameworks/guardrails-desktop Helper EH.app</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			8KbqOmyekU82TGiTrtypp8z+OZw=
+			hAeVke/qQtelsF72if1VISauGDA=
 			</data>
 			<key>requirement</key>
-			<string>identifier "guardrails-desktop.helper.EH" and certificate root = H"612ca110d92d69856e85493454d6bb90e998eb27"</string>
+			<string>identifier "guardrails-desktop.helper.EH" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MKA4CCXRWB</string>
 		</dict>
 		<key>Frameworks/guardrails-desktop Helper NP.app</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			of1ttyO+SciAZIAQ9VWPBw5wU7s=
+			o/lkrmct+3XRvWM7BAi1Xc29DJE=
 			</data>
 			<key>requirement</key>
-			<string>identifier "guardrails-desktop.helper.NP" and certificate root = H"612ca110d92d69856e85493454d6bb90e998eb27"</string>
+			<string>identifier "guardrails-desktop.helper.NP" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MKA4CCXRWB</string>
 		</dict>
 		<key>Frameworks/guardrails-desktop Helper.app</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			RFSCNmLPfiAo77nxP8YvefBKuf0=
+			Cr5VItWPqyvCh8v4HUN5L/w7xUo=
 			</data>
 			<key>requirement</key>
-			<string>identifier "guardrails-desktop.helper" and certificate root = H"612ca110d92d69856e85493454d6bb90e998eb27"</string>
+			<string>identifier "guardrails-desktop.helper" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MKA4CCXRWB</string>
 		</dict>
 		<key>Resources/app-update.yml</key>
 		<dict>
@@ -101,11 +173,209 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OPeNIvNgIKQ5COrMU5bEg5NtQXE=
+			k52vbSHqeitJ0fcN3AP7yPkk1hs=
 			</data>
 			<key>hash2</key>
 			<data>
-			ofPQAuz9z5cLsvElqJ9ahD1Y4rcULVZ4ulpx/ZYA/wQ=
+			XRRf/x8U7+42SQM6imEWSNdhfmfkYgDVXgeM3Z9CzaM=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/7x.sh</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			odRJylG1ume+nLyqeQHPmz8cDwQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			rWk2htJBhLe8Sfw1e5P8pj01pi1lCbciUlLX8YcB9Jo=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/LICENSE.txt</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7onrdmKIH9LV4h1cyAIWKIT/7C8=
+			</data>
+			<key>hash2</key>
+			<data>
+			6fIkigeTX0RMYT2E5aAjnqt1N6gMwCIS84ZmLw3tDhE=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/index.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2WRbzGQbD4C1RoSBobz/1n4cfyI=
+			</data>
+			<key>hash2</key>
+			<data>
+			A4Xc73DHlQhV4S40wN51Rt1/9sblX2L+wQ8A9dLz0jU=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/arm/7za</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EU+I/KmdWet6GhgPDj7OPwVvKMk=
+			</data>
+			<key>hash2</key>
+			<data>
+			OmjVx5S7hTQEDz+TSAp/6BlL9e2ODT4qwN5N6pZ3pkw=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/arm64/7za</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Xx3wfYFCJJMdCu942LRf+JR0rHg=
+			</data>
+			<key>hash2</key>
+			<data>
+			02OwBVr7T38zYVLdXQDxzJktboalbkoeyEsqwm3uJ/8=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/ia32/7za</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			M7euAMIYolDDBYj6E03JlGZlFHs=
+			</data>
+			<key>hash2</key>
+			<data>
+			hAD+H3jHAz3fFvVbgsOlIKkcQkop1RY8RcbghcWDQ3M=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/x64/7za</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sOpZSEpIJ9fZoKJ6UnAxDvB+Yag=
+			</data>
+			<key>hash2</key>
+			<data>
+			r8lEi9DMLu2hMczjE+9JlPllZBfgoVyEZfzanKhZsoA=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/x64/build.sh</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vsrN1HBf2Q6yqPRXdVcv+ghikII=
+			</data>
+			<key>hash2</key>
+			<data>
+			DsJqfVdcwi723S/G816SQFkxkPryC392s/S70rfqtfs=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/linux/x64/do-build.sh</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			p7C6/fsHDgzG/fopd2SLjQdZP14=
+			</data>
+			<key>hash2</key>
+			<data>
+			QwT5DpuSZszPNXshLGqOo7CBa2jDmk1GkdY4yeLwcoY=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/mac/7za</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FgO6F545ftLH95slcdcVNwvXNc4=
+			</data>
+			<key>hash2</key>
+			<data>
+			GeLsZ696yYUw80ny4z4rnQBiy5WctX0JlhwKH1GAI38=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/7zip-bin/package.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jwdmAYCL42T6MsxQJ3BH8rnVLwo=
+			</data>
+			<key>hash2</key>
+			<data>
+			w7k7IgllJBqM0pZu11Q6fmcQ+NwW1/NekTUHY/1HQ+w=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/index.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UB5TTFNoPv4LSC5dPxwCC1etvbc=
+			</data>
+			<key>hash2</key>
+			<data>
+			ypIRAviCg3rTNJeXCaHqWhpKLdtovQ3li9wKKiSzr/I=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/linux/arm/app-builder</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			P/o9zoqS9s350uBWVTJOknjBTm8=
+			</data>
+			<key>hash2</key>
+			<data>
+			bxw48OhzvFc2pdggAHTvy75QBaMm+17u2bM4G4RQs9A=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/linux/arm64/app-builder</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QPx3JwwBhz5GhycEza3CEsrBt+U=
+			</data>
+			<key>hash2</key>
+			<data>
+			6Dp3lTMF0pvLX7g9r5b+eXUsZxDBP6VSf60E76mN+40=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/linux/ia32/app-builder</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YQs+mDpyCX2CCxVgxDuTlfyafd0=
+			</data>
+			<key>hash2</key>
+			<data>
+			r1P4s6nhMBagwLoMZRBLtWHy8hv/1cPBNSUjd0pvkZ8=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/linux/x64/app-builder</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WFttQJkZkufMlyhvb7QFczj+s74=
+			</data>
+			<key>hash2</key>
+			<data>
+			eBw2c7xn1AeUt3gsi+DftMeSrESBb9htfdz15tZNVDk=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/mac/app-builder</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DMzr0sLPZxponrOk/+hJXeYjg9o=
+			</data>
+			<key>hash2</key>
+			<data>
+			vp/z0P+IUVyS/Zkl/cyTOPNOyH7D8eVxp3KNLvPzZ3s=
+			</data>
+		</dict>
+		<key>Resources/app.asar.unpacked/node_modules/app-builder-bin/package.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NatmiMR8wRLwOO7P0YKl20hwCU0=
+			</data>
+			<key>hash2</key>
+			<data>
+			Rn+tq2lIyd0a4R2sUueUYjzdY+rIrCRUBr2T0TqPvLk=
 			</data>
 		</dict>
 		<key>Resources/electron.asar</key>
@@ -119,15 +389,15 @@
 			cJU1hETXuWkYXFYBmoR7gZtKgARjIjjeVs2Z2KbIkGw=
 			</data>
 		</dict>
-		<key>Resources/electron.icns</key>
+		<key>Resources/guardrails-desktop.icns</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yBsjVAviSqArVhNx5Jx3gIgxq5A=
+			Ktcit13Xcmlqwg76TNxIL95Qx0g=
 			</data>
 			<key>hash2</key>
 			<data>
-			Wpp41UwVf1VnKv6jcDdGSFiof9XydvyCBnh/Nm7WhM8=
+			/EqPNVHJPx66cxkj4dZHyZL96IRWLu5g/AYvtCjXnlQ=
 			</data>
 		</dict>
 	</dict>
