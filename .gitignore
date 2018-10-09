@@ -1,3 +1,5 @@
 /node_modules
 .vscode/
 /lib
+embedded.provisionprofile
+/build/all-certs.p12
