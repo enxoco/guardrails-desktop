@@ -34,11 +34,11 @@ Issue the following commands after having the prerequisites:
 * `git clone https://github.com/dkelosky/electron-jquery-bootstrap.git`
 * `cd electron-jquery-bootstrap`
 * `npm install`
-* `electron .`
+* `electron`
 
 After first setup:
 ==================
-After closing the app for the first time, it can be restarted via `electron .`
+After closing the app for the first time, it can be restarted via `electron`.
 
 Linting:
 ========
