@@ -7,10 +7,8 @@ const os = require('os');
 const powershell = require('powershell');
 const hddserial = require('hddserial');
 const si = require('systeminformation');
-let ps = new powershell({
-    executionPolicy: 'Bypass',
-    noProfile: true
-});
+
+
 var stringHash = require("@sindresorhus/string-hash");
 var setupComplete = $('#setupComplete');
 const { exec } = require('child_process');
