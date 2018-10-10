@@ -3,3 +3,4 @@
 /lib
 embedded.provisionprofile
 /build/all-certs.p12
+/dist
