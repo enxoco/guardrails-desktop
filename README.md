@@ -1,27 +1,11 @@
 Intro:
 ======
-This is a bare-bones electron app that uses jQuery, Twitter's Bootstrap for
-styling, and [Photon kit for icons](http://photonkit.com/).  
+This is an example of a desktop app using jQuery, and Bootstrap.  The purpose of the app is to setup a users computer to connect to Enxo.  It is a good example of what you can do with an Electron app.  Here are some of the elements included:
 
-A JavaScript version (that should still function) is [here][0].
-
-I only use Typescript for Node.js development, so this sample app has been
-updated to reflect that.  Typescript is awesome, you should use it!
-
-I incorporated linting (using [TSLint][1]).
-
-Package.json has the complete list of dependencies, but primarily they are:
-* bootstrap
-* jQuery
-* TSLint  
-
-This repo with npm globally installed electron is ~ 7mb in size when cloned
-and creates a dummy app with this startup screen:
-
-![Alt text](images/Screenshot.jpeg?raw=true "Screen shot")
-
-Clicking the button use nodejs services to alter the text above the button to
-show the current OS's type.
+* Use of jQuery in an Electron app.
+* A form that connects to a REST API backend server for authentication
+* Interaction with AppleScript and BASH to download/install/trust a root certificate on MacOS.
+* Interaction with BASH to modify system proxy settings on MacOS and Powershell to do the same on Windows.
 
 Prerequisites:
 ==============
@@ -31,8 +15,8 @@ Prerequisites:
 For the first time setup:
 =========================
 Issue the following commands after having the prerequisites:
-* `git clone https://github.com/dkelosky/electron-jquery-bootstrap.git`
-* `cd electron-jquery-bootstrap`
+* `git clone https://github.com/enxoco/guardrails-desktop.git`
+* `cd guardrails-desktop`
 * `npm install`
 * `electron .`
 
@@ -51,11 +35,10 @@ Building:
 
 Overview:
 =========
-`main.ts` loads the main html file `index.html`.  `index.html` is a fairly standard bootstrap-looking html file which 
-`requires` our `lib/render/index.js`. 
+`main.ts` loads the main html file `index.html`.  `index.html` is a fairly standard bootstrap-looking html file which
+`requires` our `lib/render/index.js`.
 
-If you are on a corporate proxy there are various `npm config set` options to
-tweek in order to download npm modules.
-
-[0]:https://github.com/dkelosky/electron-jquery-bootstrap/tree/javascript-version
-[1]: https://palantir.github.io/tslint/
+Packaging Releases:
+==============
+* Electron Builder is included in order to package binaries for MacOS and Windows.
+* On MacOS modify package.json accordingly then run `npm run dist` to have a binary built in the dist/ folder
