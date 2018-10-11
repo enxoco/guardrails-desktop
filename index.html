@@ -14,7 +14,8 @@
     body {
       background-color: #213A44;
       color: #f1f1f1;
-       -webkit-app-region: drag
+       -webkit-app-region: drag;
+      overflow: hidden;
     }
     button#button-id {
       background-color: #213A44;
@@ -109,8 +110,142 @@
 
 
 
+/* Loading animation */
+
+.cssload-loader {
+	width: 844px;
+	height: 169px;
+	line-height: 169px;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+	font-family: helvetica, arial, sans-serif;
+	text-transform: uppercase;
+	font-weight: 900;
+	font-size:61px;
+	color: rgb(241,250,255);
+	letter-spacing: 0.2em;
+}
+.cssload-loader::before, .cssload-loader::after {
+	content: "";
+	display: block;
+	width: 51px;
+	height: 51px;
+	background: #F1FAFF;
+	position: absolute;
+	animation: cssload-load 0.81s infinite alternate ease-in-out;
+		-o-animation: cssload-load 0.81s infinite alternate ease-in-out;
+		-ms-animation: cssload-load 0.81s infinite alternate ease-in-out;
+		-webkit-animation: cssload-load 0.81s infinite alternate ease-in-out;
+		-moz-animation: cssload-load 0.81s infinite alternate ease-in-out;
+}
+.cssload-loader::before {
+	top: 0;
+}
+.cssload-loader::after {
+	bottom: 0;
+}
 
 
+
+@keyframes cssload-load {
+	0% {
+		left: 0;
+		height: 101px;
+		width: 51px;
+	}
+	50% {
+		height: 27px;
+		width: 135px;
+	}
+	100% {
+		left: 793px;
+		height: 101px;
+		width: 51px;
+	}
+}
+
+@-o-keyframes cssload-load {
+	0% {
+		left: 0;
+		height: 101px;
+		width: 51px;
+	}
+	50% {
+		height: 27px;
+		width: 135px;
+	}
+	100% {
+		left: 793px;
+		height: 101px;
+		width: 51px;
+	}
+}
+
+@-ms-keyframes cssload-load {
+	0% {
+		left: 0;
+		height: 101px;
+		width: 51px;
+	}
+	50% {
+		height: 27px;
+		width: 135px;
+	}
+	100% {
+		left: 793px;
+		height: 101px;
+		width: 51px;
+	}
+}
+
+@-webkit-keyframes cssload-load {
+	0% {
+		left: 0;
+		height: 101px;
+		width: 51px;
+	}
+	50% {
+		height: 27px;
+		width: 135px;
+	}
+	100% {
+		left: 793px;
+		height: 101px;
+		width: 51px;
+	}
+}
+
+@-moz-keyframes cssload-load {
+	0% {
+		left: 0;
+		height: 101px;
+		width: 51px;
+	}
+	50% {
+		height: 27px;
+		width: 135px;
+	}
+	100% {
+		left: 793px;
+		height: 101px;
+		width: 51px;
+	}
+}
+
+.loader-wrapper {
+  width: 100vw;
+  height: 1000px;
+  background: #213a44;
+  position: absolute;
+  z-index: 10000000000;
+  padding-top: 25%;
+}
     </style>
 
 
@@ -118,7 +253,11 @@
 
 <body>
   <!-- <div id="titlebar">hello</div> -->
+  <div class="loader-wrapper" id="loader">
+    <div class="cssload-loader" id="loader">Loading</div>
+  </div>
 
+  </div>
     <!-- show some copy/pasted Bootstrap entities -->
     <div class="container text-center">
         <div class="jumbotron">
@@ -156,5 +295,8 @@
     </div>
 
 </body>
+<script>
+$('#loader').hide()
+</script>
 
 </html>
