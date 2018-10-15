@@ -18,11 +18,11 @@ Issue the following commands after having the prerequisites:
 * `git clone https://github.com/enxoco/guardrails-desktop.git`
 * `cd guardrails-desktop`
 * `npm install`
-* `electron .`
+* `electron`
 
 After first setup:
 ==================
-After closing the app for the first time, it can be restarted via `electron .`
+After closing the app for the first time, it can be restarted via `electron`.
 
 Linting:
 ========
