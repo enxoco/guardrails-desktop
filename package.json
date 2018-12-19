@@ -43,6 +43,7 @@
   "dependencies": {
     "@sindresorhus/string-hash": "^1.0.0",
     "adbkit": "^2.11.0",
+    "app-root-dir": "^1.0.2",
     "appium-adb": "^6.28.0",
     "bootstrap": "^4.0.0-beta.2",
     "electron-builder-squirrel-windows": "^20.28.3",

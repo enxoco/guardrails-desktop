@@ -10,9 +10,31 @@ const si = require('systeminformation');
 var stringHash = require("@sindresorhus/string-hash");
 var setupComplete = $('#setupComplete');
 const { exec } = require('child_process');
+const helperModal = $('#helper-modal')
+var appRootDir = require('app-root-dir').get()
+var adb = appRootDir + '/node_modules/.bin/adb'
+console.log(adb)
+
+
+
+function checkDevice() {
+    const device = exec(`~/Downloads/platform-tools/adb devices`, (error, stdOut, stdErr) => {
+        if (stdOut.split('\n')[1].split('	')[0]) {
+            $('#helper-modal').hide()
+        }
+    })
+}
+
 const listDevices = exec(`~/Downloads/platform-tools/adb devices`, (error, stdOut, stdErr) => {
-    if (stdOut) {
-        alert(`device list ${stdOut}`)
+    if (stdOut.split('\n')[1].split('	')[0]) {
+        var device = stdOut.split('\n')[1].split('	')[0]
+        alert(`device with id ${device} attached`)
+        $('#deviceId').val(device)
+        $('#helper-modal').hide()
+    } else {
+        $('#helper-modal').show()
+        setInterval(checkDevice, 1000)
+
     }
 })
 
@@ -24,8 +46,7 @@ si.getAllData(function (data) {
     $('#serialNumber').val(data.system.serial);
 });
 document.addEventListener("DOMContentLoaded", () => {
-        $('#deviceId').val(devices[0].id)
-
+        
     initListeners();
 });
 function initListeners() {
