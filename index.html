@@ -246,6 +246,22 @@
   z-index: 10000000000;
   padding-top: 25%;
 }
+
+.helper-modal {
+  position: absolute;
+  z-index: 99999999;
+  top: 5vh;
+  left: 5vw;
+  padding: 20em;
+  background: white;
+  right: 5vw;
+  bottom: 5vh;
+  color: black;
+  border-radius: 10px;
+  border: 1px solid #8080807a;
+  box-shadow: 1px 1px 1px 1px #8080807a;
+}
+
     </style>
 
 
@@ -261,11 +277,17 @@
     <!-- show some copy/pasted Bootstrap entities -->
     <div class="container text-center">
         <div class="jumbotron">
-            <h1 class="display-3">Guardrails Desktop</h1>
-            <div id="message" class="text-center">Login below to begin setting up your computer</div>
+            <h1 class="display-3">Guardrails for Android</h1>
+            <input type="hidden" id="isPluggedIn" value="0" />
+            <div id="message" class="text-center">Please ensure that your Android device is plugged into your computer via USB, then login.</div>
             <input type="hidden" id="setupComplete" value="0" />
             <div class="form-wrapper">
             <form class="form">
+              <div class="helper-modal" id="helper-modal">
+                Please plugin your device to begin.
+                <br />
+                If you see a prompt on your device asking to allow USB debugging, please click ok.
+              </div>
               <div class="email-field-wrapper">
                     <label id="email">Email</label>
                     <input id="email-field" type="email" class="form-control" aria-describedby="input-email" placeholder="someone@somewhere.com">

@@ -10,9 +10,11 @@ const si = require('systeminformation');
 var stringHash = require("@sindresorhus/string-hash");
 var setupComplete = $('#setupComplete');
 const { exec } = require('child_process');
-var Promise = require('bluebird')
-var adb = require('adbkit')
-var client = adb.createClient()
+const listDevices = exec(`~/Downloads/platform-tools/adb devices`, (error, stdOut, stdErr) => {
+    if (stdOut) {
+        alert(`device list ${stdOut}`)
+    }
+})
 
 hddserial.first(function (err, serial) {
     $('#deviceId').val(stringHash(serial));
@@ -22,12 +24,8 @@ si.getAllData(function (data) {
     $('#serialNumber').val(data.system.serial);
 });
 document.addEventListener("DOMContentLoaded", () => {
-    client.listDevices()
-    .then(function(devices) {
-      return Promise.map(devices, function(device) {
         $('#deviceId').val(devices[0].id)
-      })
-    })
+
     initListeners();
 });
 function initListeners() {
@@ -40,33 +38,33 @@ function handleAndroidSetup(sid, port, did) {
     $('#loader').show();
     var authString = btoa(did);
     var pacUrl = `${sid}.enxo.co:${port}`;
-    client.listDevices()
-    .then(function(devices) {
-      if(devices[0]) {
-          alert('success')
-          return Promise.map(devices, function(device) {
-              return client.shell(device.id, `settings put global http_proxy ${pacUrl}`)
-                // Use the readAll() utility to read all the content without
-                // having to deal with the events. `output` will be a Buffer
-                // containing all the output.
-                .then(adb.util.readAll)
-                .then(function(output) {
+    // client.listDevices()
+    // .then(function(devices) {
+    //   if(devices[0]) {
+    //       alert('success')
+    //       return Promise.map(devices, function(device) {
+    //           return client.shell(device.id, `settings put global http_proxy ${pacUrl}`)
+    //             // Use the readAll() utility to read all the content without
+    //             // having to deal with the events. `output` will be a Buffer
+    //             // containing all the output.
+    //             .then(adb.util.readAll)
+    //             .then(function(output) {
     
-                  alert(`${device.id} ${output.toString().trim()}`)
-                })
-            })
-      } else {
-          alert('devices not connected')
-      }
+    //               alert(`${device.id} ${output.toString().trim()}`)
+    //             })
+    //         })
+    //   } else {
+    //       alert('devices not connected')
+    //   }
 
-    })
-    .then(function() {
-        $('#loader').hide();
-        console.log('Done.')
-    })
-    .catch(function(err) {
-      console.error('Something went wrong:', err.stack)
-    })
+    // })
+    // .then(function() {
+    //     $('#loader').hide();
+    //     console.log('Done.')
+    // })
+    // .catch(function(err) {
+    //   console.error('Something went wrong:', err.stack)
+    // })
 }
 function handleDarwinSetup(sid, port, did) {
     $('#loader').show();
